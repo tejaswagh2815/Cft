@@ -25,7 +25,8 @@ const Login = ({navigation}) => {
           if (m == values.email && p == values.password) {
             navigation.replace('Home');
           } else {
-            Alert.alert('detail not match ');
+            Alert.alert('Please Ragister first');
+            navigation.navigate('Signup');
           }
         }}>
         {({

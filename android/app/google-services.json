@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "341909592612",
+    "project_id": "reactnative-e9376",
+    "storage_bucket": "reactnative-e9376.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:341909592612:android:ea9728ac14475b702c56b1",
+        "android_client_info": {
+          "package_name": "com.cft.rn"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD3cJ1QTJm5Yb_ClfrTERDkzPF_xF5EPZI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

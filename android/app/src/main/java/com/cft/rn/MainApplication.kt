@@ -1,4 +1,4 @@
-package com.cft
+package com.cft.rn
 
 import android.app.Application
 import com.facebook.react.PackageList

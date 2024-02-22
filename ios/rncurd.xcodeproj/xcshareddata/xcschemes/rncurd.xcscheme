@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-               BuildableName = "Cft.app"
-               BlueprintName = "Cft"
-               ReferencedContainer = "container:Cft.xcodeproj">
+               BuildableName = "rncurd.app"
+               BlueprintName = "rncurd"
+               ReferencedContainer = "container:rncurd.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "00E356ED1AD99517003FC87E"
-               BuildableName = "CftTests.xctest"
-               BlueprintName = "CftTests"
-               ReferencedContainer = "container:Cft.xcodeproj">
+               BuildableName = "rncurdTests.xctest"
+               BlueprintName = "rncurdTests"
+               ReferencedContainer = "container:rncurd.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -55,9 +55,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "Cft.app"
-            BlueprintName = "Cft"
-            ReferencedContainer = "container:Cft.xcodeproj">
+            BuildableName = "rncurd.app"
+            BlueprintName = "rncurd"
+            ReferencedContainer = "container:rncurd.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -72,9 +72,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "Cft.app"
-            BlueprintName = "Cft"
-            ReferencedContainer = "container:Cft.xcodeproj">
+            BuildableName = "rncurd.app"
+            BlueprintName = "rncurd"
+            ReferencedContainer = "container:rncurd.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
