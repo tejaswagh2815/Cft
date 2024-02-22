@@ -1,8 +1,9 @@
-import {View, Text, StyleSheet} from 'react-native';
-import React from 'react';
+import {View, Text, StyleSheet, Alert} from 'react-native';
+import React, {useMemo} from 'react';
 import {Button, TextInput} from 'react-native-paper';
 import {Formik} from 'formik';
 import * as Yup from 'yup';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const validation = Yup.object().shape({
   email: Yup.string().email('Invalid email').required(),
@@ -16,8 +17,25 @@ const Login = ({navigation}) => {
       <Formik
         initialValues={{email: '', password: ''}}
         validationSchema={validation}
-        onSubmit={values => console.log(values)}>
-        {({handleChange, handleBlur, handleSubmit, values, errors}) => (
+        onSubmit={async values => {
+          let uemail = await AsyncStorage.getItem('email');
+          let upass = await AsyncStorage.getItem('pass');
+          const m = JSON.parse(uemail);
+          const p = JSON.parse(upass);
+          if (m == values.email && p == values.password) {
+            navigation.replace('Home');
+          } else {
+            Alert.alert('detail not match ');
+          }
+        }}>
+        {({
+          handleChange,
+          handleBlur,
+          handleSubmit,
+          values,
+          errors,
+          touched,
+        }) => (
           <View style={{width: '90%'}}>
             <Text style={styles.title}>Email Id</Text>
             <TextInput
@@ -26,7 +44,7 @@ const Login = ({navigation}) => {
               onBlur={handleBlur('email')}
               value={values.email}
             />
-            {errors.email && (
+            {errors.email && touched.email && (
               <Text style={styles.errortxt}>{errors.email}</Text>
             )}
             <Text style={[styles.title, {paddingTop: 10}]}>Password</Text>
@@ -36,7 +54,7 @@ const Login = ({navigation}) => {
               onBlur={handleBlur('password')}
               value={values.password}
             />
-            {errors.password && (
+            {errors.password && touched.password && (
               <Text style={styles.errortxt}>{errors.password}</Text>
             )}
             <Button

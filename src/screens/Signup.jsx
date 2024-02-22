@@ -3,6 +3,7 @@ import React from 'react';
 import {Button, TextInput} from 'react-native-paper';
 import {Formik} from 'formik';
 import * as Yup from 'yup';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const validation = Yup.object().shape({
   name: Yup.string().required(),
@@ -16,8 +17,21 @@ const Signup = ({navigation}) => {
       <Formik
         initialValues={{name: '', email: '', password: ''}}
         validationSchema={validation}
-        onSubmit={values => console.log(values)}>
-        {({handleChange, handleBlur, handleSubmit, values, errors}) => (
+        onSubmit={values => {
+          console.log(values);
+          AsyncStorage.setItem('name', JSON.stringify(values.name));
+          AsyncStorage.setItem('email', JSON.stringify(values.email));
+          AsyncStorage.setItem('pass', JSON.stringify(values.password));
+          navigation.navigate('Login');
+        }}>
+        {({
+          handleChange,
+          handleBlur,
+          handleSubmit,
+          values,
+          errors,
+          touched,
+        }) => (
           <View style={{width: '90%'}}>
             <Text style={styles.title}>Name</Text>
             <TextInput
@@ -26,7 +40,9 @@ const Signup = ({navigation}) => {
               onBlur={handleBlur('name')}
               value={values.name}
             />
-            {errors.name && <Text style={styles.errortxt}>{errors.name}</Text>}
+            {errors.name && touched.name && (
+              <Text style={styles.errortxt}>{errors.name}</Text>
+            )}
             <Text style={[styles.title, {paddingTop: 10}]}>Email Id</Text>
             <TextInput
               style={styles.txtinput}
@@ -34,7 +50,7 @@ const Signup = ({navigation}) => {
               onBlur={handleBlur('email')}
               value={values.email}
             />
-            {errors.email && (
+            {errors.email && touched.email && (
               <Text style={styles.errortxt}>{errors.email}</Text>
             )}
             <Text style={[styles.title, {paddingTop: 10}]}>Password</Text>
@@ -44,7 +60,7 @@ const Signup = ({navigation}) => {
               onBlur={handleBlur('password')}
               value={values.password}
             />
-            {errors.password && (
+            {errors.password && touched.password && (
               <Text style={styles.errortxt}>{errors.password}</Text>
             )}
             <Button
