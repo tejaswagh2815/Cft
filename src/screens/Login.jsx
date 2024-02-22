@@ -53,6 +53,7 @@ const Login = ({navigation}) => {
               onChangeText={handleChange('password')}
               onBlur={handleBlur('password')}
               value={values.password}
+              secureTextEntry
             />
             {errors.password && touched.password && (
               <Text style={styles.errortxt}>{errors.password}</Text>

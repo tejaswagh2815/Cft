@@ -1,0 +1,2 @@
+
+com.cft.rn  package name

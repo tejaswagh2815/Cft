@@ -9,7 +9,7 @@ const Slpash = ({navigation}) => {
     }, 3000);
   }, []);
   return (
-    <View>
+    <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
       <Text variant="displayLarge">CFT</Text>
     </View>
   );
